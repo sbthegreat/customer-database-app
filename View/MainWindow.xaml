@@ -1,0 +1,31 @@
+﻿<Window x:Class="Books_part2.MainWindow"
+        Name="mainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Books_part2"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+        Title="Customer Maintenance" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="addButton" Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="21,277,0,0"/>
+        <Button x:Name="modifyButton" Content="Modify" Command="{Binding ModifyCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="127,277,0,0"/>
+        <Button x:Name="deleteButton" Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="232,277,0,0" RenderTransformOrigin="0.24,0.55"/>
+        <Button x:Name="exitButton" Content="Exit" Command="{Binding ExitCommand}" CommandParameter="{Binding ElementName=mainWindow}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="420,277,0,0"/>
+        <Button x:Name="getButton" Content="Get Customer" Command="{Binding GetCommand}" CommandParameter="{Binding Text, ElementName=IDBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="191,34,0,0"/>
+        <TextBox x:Name="addressBox" HorizontalAlignment="Left" Text="{Binding SelectedCustomer.Address, UpdateSourceTrigger=PropertyChanged}" Height="23" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top" Width="347" Margin="116,119,0,0"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Text="{Binding SelectedCustomer.Name, UpdateSourceTrigger=PropertyChanged}" Height="23" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top" Width="347" Margin="116,78,0,0"/>
+        <TextBox x:Name="zipBox" HorizontalAlignment="Left" Text="{Binding SelectedCustomer.ZipCode, UpdateSourceTrigger=PropertyChanged}" Height="23" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Margin="366,196,0,0"/>
+        <TextBox x:Name="stateBox" HorizontalAlignment="Left" Text="{Binding SelectedCustomer.State1.StateName, UpdateSourceTrigger=PropertyChanged}" Height="23" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="116,196,0,0"/>
+        <TextBox x:Name="cityBox" HorizontalAlignment="Left" Text="{Binding SelectedCustomer.City, UpdateSourceTrigger=PropertyChanged}" Height="23" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top" Width="347" Margin="116,157,0,0"/>
+        <TextBox x:Name="IDBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="116,34,0,0"/>
+        <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,75,0,0"/>
+        <Label Content="Address:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,119,0,0"/>
+        <Label Content="City:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,157,0,0"/>
+        <Label Content="State:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,196,0,0"/>
+        <Label Content="Zip code:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="273,196,0,0" RenderTransformOrigin="-0.542,0.077"/>
+        <Label Content="Customer ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,31,0,0"/>
+
+    </Grid>
+</Window>
